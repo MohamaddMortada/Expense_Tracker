@@ -1,19 +1,3 @@
-document.getElementById('inputForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const type = document.getElementById('type').value;
-    const source = document.getElementById('source').value;
-    const amount = parseFloat(document.getElementById('amount').value);
-    const date = document.getElementById('date').value;
-
-    
-    if (document.getElementById('expenseId').value) {
-        updateExpense(document.getElementById('expenseId').value, type, source, amount, date);
-    } else {
-        addExpense(type, source, amount, date);
-    }    
-    document.getElementById('inputForm').reset();
-});
 
 function addExpense(type, source, amount, date) {
     const data = new FormData();
@@ -114,5 +98,9 @@ function deleteExpense(id) {
     })
     .catch(error => console.error('Error:', error));
 }
+let logout_btn=document.getElementById('logoutButton');
+logout_btn.addEventListener('click',()=>{
+    window.location.href="login.html";
+})
 
 window.onload = fetchExpenses;
